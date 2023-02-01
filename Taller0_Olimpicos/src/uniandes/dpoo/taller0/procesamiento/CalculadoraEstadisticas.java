@@ -426,8 +426,17 @@ public class CalculadoraEstadisticas
 				elAtleta = atletas.get(i);
 		}
 		return elAtleta;
-	}
+	} 
 
+	public String buscarPaisDeAtleta(String nombreAtleta)
+	{
+		String pais = null;
+		for (int i = 0; i < atletas.size() && pais == null;i++) {
+			if (atletas.get(i).darNombre().equals(nombreAtleta))
+				pais = atletas.get(i).darPais().darNombre();
+		}
+		return pais;
+	}
 	/**
 	 * Retorna una colección con los nombres de los eventos
 	 * 

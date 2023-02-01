@@ -62,7 +62,9 @@ public class ConsolaOlimpicos
 					ejecutarMedallistasPorNacionYGenero();
 				else if (opcion_seleccionada == 12 && calculadora != null)
 					ejecutarPorcentajeMedallistas();
-				else if (opcion_seleccionada == 13)
+				else if (opcion_seleccionada == 13 && calculadora != null)
+					ejecutarPaisAtleta();
+				else if (opcion_seleccionada == 14)
 				{
 					System.out.println("Saliendo de la aplicación ...");
 					continuar = false;
@@ -102,7 +104,8 @@ public class ConsolaOlimpicos
 		System.out.println("10. Consultar el atleta todoterreno");
 		System.out.println("11. Consultar los medallistas por país y género");
 		System.out.println("12. Consultar el porcentaje de atletas que son medallistas");
-		System.out.println("13. Salir de la aplicación\n");
+		System.out.println("13. consultar el pais al que representa un atleta");
+		System.out.println("14. Salir de la aplicación\n");
 	}
 
 	/**
@@ -362,7 +365,20 @@ public class ConsolaOlimpicos
 			System.out.println(deporte + ": " + atletas.get(deporte).size() + " atletas");
 		}
 	}
-
+	
+	/**
+	 * Pide al usuario el nombre de un atleta y muestra el país al que representa ese atleta.
+	 */
+	private void ejecutarPaisAtleta()
+	{
+		System.out.println("\n" + "Pais al que representa el atleta" + "\n");
+		
+		String nombre_atleta = input("Ingrese el nombre del atleta que le interesa");
+		String pais = calculadora.buscarPaisDeAtleta(nombre_atleta);
+		
+		System.out.println(pais);
+		
+	}
 	/**
 	 * Este método le pide al usuario el nombre de un archivo con información de los
 	 * atletas, lo carga usando la clase LoaderOlimpicos y crea un objeto de tipo
